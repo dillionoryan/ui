@@ -1,0 +1,19 @@
+{
+  "name": "cus1172finalprojectso",
+  "version": "1.0.0",
+  "description": "node app ",
+  "main": "app.js",
+  "scripts": {
+  "start": "node app.js"
+},
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/brianso217/FinalProject"
+},
+  "author": "Brian So",
+  "license": "ISC",
+  "bugs": {
+  "url": ""
+},
+  "homepage": ""
+}

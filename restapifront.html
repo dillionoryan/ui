@@ -1,0 +1,79 @@
+<html>
+<head>
+
+<!-- handlebars -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src="restapifront.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="restapifront.css">
+</head>
+
+<body class="container">
+
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <h1> Brian's Course Query System </h1>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class= "col-sm-4">
+  <!-- Query by Course Code -->
+<form onsubmit= "return false;" id="queryForm">
+  <label for="codeQuery">Search by Course Code: </label> <br>
+  <input type="text" id="codeQuery" name= "codeQuery" value= ""> <br>
+  <input type="button" class= "button" id="queryByCode" onclick= "updateView(this)" value="Query" data-querytype="by_coursecode">
+</form>
+
+<!-- Query for Title -->
+<form onsubmit= "return false;" id="queryForm">
+  <label for="titleQuery">Search by Course Title: </label> <br>
+  <input type="text" id="titleQuery" name= "titleQuery" value= ""> <br>
+  <input type="button" class= "button" id="queryByTitle" onclick= "updateView(this)" value="Query" data-querytype="by_coursetitle">
+</form>
+
+<form onsubmit= "return false;" id="queryForm">
+  <label for="professorQuery">Search by Course Instructor: </label> <br>
+  <input type="text" id="professorQuery" name= "professorQuery" value= ""> <br>
+  <input type="button" class= "button" id="queryByProfessor" onclick= "updateView(this)" value="Query" data-querytype="by_courseprofessor">
+</form>
+<!-- Query for Undergraduate Courses-->
+<form onsubmit= "return false;" id="queryForm">
+  <label for="undergradQuery">Click for all Undergraduate Courses!</label> <br>
+  <input type="button" class= "button" id="undergradQuery" onclick= "updateView(this)" value="Undergraduate" data-querytype="by_undergrad">
+</form>
+<!-- Query for Graduate Courses -->
+<form onsubmit= "return false;" id="queryForm">
+  <label for="gradQuery">Click for all Graduate Courses! </label> <br>
+  <input type="button"  class= "button" id="gradQuery" onclick= "updateView(this)" value="Graduate" data-querytype="by_graduate">
+</form>
+</div>
+    <div class="col-sm-8">
+      <div  id="results">
+      </div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+<script id= "show_results_view" type="text/x-handlebars-template">
+  <table class="table">
+    <tr>
+    <th> Course Code </th>
+    <th> Course Level </th>
+    <th> Course Title </th>
+    <th> Course Instructor</th>
+  </tr>
+    {{#each coursedata}}
+    <tr class= "data">
+    <td> {{this.course_code}}</td>
+    <td> {{this.course_level}}</td>
+    <td> {{this.title}}</td>
+    <td> {{this.instructor}}</td>
+  </tr>
+  {{/each}}
+</table>
+</script>
